@@ -9,8 +9,8 @@
       Title="UserPage">
 
     <Grid>
-        <StackPanel Margin="10" HorizontalAlignment="Center">
-            <Image x:Name="UserPhoto" Width="100" Height="100" Margin="10"/>
+        <StackPanel Margin="30" HorizontalAlignment="Center">
+            <Image x:Name="Photo" Width="100" Height="100" Margin="10"/>
             <TextBlock Text="Имя пользователя:" FontWeight="Bold"/>
             <TextBlock x:Name="FullNameTextBlock" FontSize="14" Margin="5"/>
             <TextBlock Text="Логин:" FontWeight="Bold"/>

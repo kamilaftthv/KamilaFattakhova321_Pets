@@ -15,14 +15,5 @@ namespace KamilaFattakhova321_Pets
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-
-            // Создание главного окна
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Content = new PetPage(); // Установка PetPage как начальной страницы
-            mainWindow.Show();
-        }
     }
 }

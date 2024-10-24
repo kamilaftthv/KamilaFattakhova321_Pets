@@ -9,7 +9,7 @@
       Title="AddPetPage">
 
     <Grid>
-        <StackPanel Margin="10">
+        <StackPanel Margin="30">
             <TextBlock Text="Имя питомца:"/>
             <TextBox x:Name="NameTextBox"/>
 

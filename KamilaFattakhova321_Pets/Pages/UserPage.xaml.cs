@@ -47,7 +47,7 @@ namespace KamilaFattakhova321_Pets.Pages
                         image.CacheOption = BitmapCacheOption.OnLoad;
                         image.EndInit();
                     }
-                    UserPhoto.Source = image;
+                    Photo.Source = image;
                 }
             }
         }

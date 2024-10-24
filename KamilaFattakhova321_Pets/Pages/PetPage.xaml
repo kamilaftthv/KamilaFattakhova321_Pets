@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel>
-            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}">
+            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="30"> 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
                     <DataGridTextColumn Header="Type" Binding="{Binding Pet_type.Type}" Width="*"/>
@@ -18,7 +18,7 @@
                     <DataGridTemplateColumn Header="Picture" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Width="50" Height="50" Source="{Binding Picture, Converter={StaticResource ImageConverter}}"/>
+                                <Image Width="50" Height="50" Source="{Binding Picture}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
