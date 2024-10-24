@@ -30,7 +30,7 @@ namespace KamilaFattakhova321_Pets.Pages
         private void LoadUserInfo()
         {
             var user = DataBaseManager.DataBaseConnection.User.FirstOrDefault(u => u.Id_user == 1);
-
+            
             if (user != null)
             {
                 FullNameTextBlock.Text = user.FullName;
