@@ -25,16 +25,7 @@ namespace KamilaFattakhova321_Pets
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void PetPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new PetPage();
-        }
-
-        private void UserPageButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new UserPage();
+            MainFrame.Content = new AutoPage();
         }
     }
 }

@@ -9,13 +9,17 @@
       Title="PetPage">
 
     <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Button Content="Питомцы" Click="PetPageButton_Click" Width="400" Margin="5"/>
+            <Button Content="Профиль" Click="UserPageButton_Click" Width="400" Margin="5"/>
+        </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="30"> 
+            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="40"> 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Type" Binding="{Binding Pet_type.Type}" Width="*"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
-                    <DataGridTemplateColumn Header="Picture" Width="*">
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Вид" Binding="{Binding Pet_type.Type}" Width="*"/>
+                    <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                    <DataGridTemplateColumn Header="Фото" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Width="50" Height="50" Source="{Binding Picture}"/>

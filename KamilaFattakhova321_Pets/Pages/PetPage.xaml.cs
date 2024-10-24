@@ -1,4 +1,5 @@
 ﻿using KamilaFattakhova321_Pets.Data;
+using KamilaFattakhova321_Pets.DbConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,21 +22,32 @@ namespace KamilaFattakhova321_Pets.Pages
     /// </summary>
     public partial class PetPage : Page
     {
-        public PetPage()
+        private User _currentUser;
+
+        public PetPage(User user)
         {
             InitializeComponent();
+            _currentUser = user;
             LoadPets();
         }
 
         private void LoadPets()
         {
-            var pets = DataBaseManager.DataBaseConnection.Pets.ToList();
+            var pets = DataBaseManager.DataBaseConnection.Pets
+                       .Where(pet => pet.Pet_type.User.Id_user == _currentUser.Id_user).ToList();
             PetsDataGrid.ItemsSource = pets;
         }
-
         private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPetPage());
+        }
+        private void PetPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Остаемся на PetPage, можно реализовать логику обновления данных
+        }
+        private void UserPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserPage(_currentUser));
         }
     }
 }

@@ -7,10 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Питомцы" Width="400" Margin="5" Click="PetPageButton_Click"/>
-            <Button Content="Пользователь" Width="400" Margin="5" Click="UserPageButton_Click"/>
-        </StackPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </DockPanel>
 </Window>

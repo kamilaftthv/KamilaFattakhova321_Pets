@@ -9,7 +9,11 @@
       Title="UserPage">
 
     <Grid>
-        <StackPanel Margin="30" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Button Content="Питомцы" Click="PetPageButton_Click" Width="400" Margin="5"/>
+            <Button Content="Профиль" Click="UserPageButton_Click" Width="400" Margin="5"/>
+        </StackPanel>
+        <StackPanel Margin="40" HorizontalAlignment="Center">
             <Image x:Name="Photo" Width="100" Height="100" Margin="10"/>
             <TextBlock Text="Имя пользователя:" FontWeight="Bold"/>
             <TextBlock x:Name="FullNameTextBlock" FontSize="14" Margin="5"/>

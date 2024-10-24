@@ -1,4 +1,5 @@
 ﻿using KamilaFattakhova321_Pets.Data;
+using KamilaFattakhova321_Pets.DbConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace KamilaFattakhova321_Pets.Pages
     /// </summary>
     public partial class UserPage : Page
     {
-        public UserPage()
+        private User _currentUser;
+        public UserPage(User user)
         {
             InitializeComponent();
             LoadUserInfo();
+            _currentUser = user;
         }
 
         private void LoadUserInfo()
@@ -55,6 +58,14 @@ namespace KamilaFattakhova321_Pets.Pages
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void PetPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PetPage(_currentUser));
+        }
+
+        private void UserPageButton_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }
