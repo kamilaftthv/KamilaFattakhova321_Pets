@@ -16,8 +16,8 @@
         <StackPanel>
             <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="40"> 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Вид" Binding="{Binding Pet_type.Type}" Width="*"/>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Pet_type.Type}" Width="*"/>
                     <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
                     <DataGridTemplateColumn Header="Фото" Width="*">
                         <DataGridTemplateColumn.CellTemplate>

@@ -10,10 +10,10 @@
 
     <Grid>
         <StackPanel Margin="30">
-            <TextBlock Text="Имя питомца:"/>
+            <TextBlock Text="Название:"/>
             <TextBox x:Name="NameTextBox"/>
 
-            <TextBlock Text="Тип питомца:"/>
+            <TextBlock Text="Имя питомца:"/>
             <ComboBox x:Name="TypeComboBox" DisplayMemberPath="Type" SelectedValuePath="Id_type"/>
 
             <TextBlock Text="Описание:"/>

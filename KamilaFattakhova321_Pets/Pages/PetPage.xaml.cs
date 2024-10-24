@@ -33,9 +33,18 @@ namespace KamilaFattakhova321_Pets.Pages
 
         private void LoadPets()
         {
-            var pets = DataBaseManager.DataBaseConnection.Pets
-                       .Where(pet => pet.Pet_type.User.Id_user == _currentUser.Id_user).ToList();
-            PetsDataGrid.ItemsSource = pets;
+            if (_currentUser.Login == "Admin")
+            {
+                var pets = DataBaseManager.DataBaseConnection.Pets.ToList();
+                PetsDataGrid.ItemsSource = pets;
+            }
+            else
+            {
+                var pets = DataBaseManager.DataBaseConnection.Pets
+                              .Where(pet => pet.Pet_type.User.Id_user == _currentUser.Id_user)
+                              .ToList();
+                PetsDataGrid.ItemsSource = pets;
+            }
         }
         private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
