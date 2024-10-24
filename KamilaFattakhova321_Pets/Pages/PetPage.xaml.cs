@@ -43,7 +43,6 @@ namespace KamilaFattakhova321_Pets.Pages
         }
         private void PetPageButton_Click(object sender, RoutedEventArgs e)
         {
-            // Остаемся на PetPage, можно реализовать логику обновления данных
         }
         private void UserPageButton_Click(object sender, RoutedEventArgs e)
         {
