@@ -23,6 +23,7 @@
             <TextBlock x:Name="PasswordTextBlock" FontSize="14" Margin="5"/>
             <Button Content="Выйти" Width="100" Margin="20" Click="ExitButton_Click"/>
             <Button Content="Загрузить новое фото" Click="UploadPhotoButton_Click" />
+            <Button Content="Сохранить изменения" Click="SaveChangesButton_Click" Margin="0,20,0,0" />
         </StackPanel>
     </Grid>
 </Page>

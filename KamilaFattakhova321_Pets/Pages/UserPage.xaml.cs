@@ -88,5 +88,10 @@ namespace KamilaFattakhova321_Pets.Pages
                 }
             }
         }
+        private void SaveChangesButton_Click(object sender, RoutedEventArgs e)
+        {
+            DataBaseManager.DataBaseConnection.SaveChanges();
+            MessageBox.Show("Изменения успешно сохранены.");
+        }
     }
 }
