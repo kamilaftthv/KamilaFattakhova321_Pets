@@ -17,12 +17,11 @@ using System.Windows.Shapes;
 
 namespace KamilaFattakhova321_Pets.Pages
 {
-    /// <summary>
-    /// Interaction logic for PetPage.xaml
-    /// </summary>
     public partial class PetPage : Page
     {
         private User _currentUser;
+        private List<Pets> _pets;
+        private List<Pets> _filteredPets;
 
         public PetPage(User user)
         {
@@ -35,17 +34,60 @@ namespace KamilaFattakhova321_Pets.Pages
         {
             if (_currentUser.Login == "Admin")
             {
-                var pets = DataBaseManager.DataBaseConnection.Pets.ToList();
-                PetsDataGrid.ItemsSource = pets;
+                _pets = DataBaseManager.DataBaseConnection.Pets.ToList();
             }
             else
             {
-                var pets = DataBaseManager.DataBaseConnection.Pets
+                _pets = DataBaseManager.DataBaseConnection.Pets
                               .Where(pet => pet.Pet_type.User.Id_user == _currentUser.Id_user)
                               .ToList();
-                PetsDataGrid.ItemsSource = pets;
+            }
+            _filteredPets = _pets;
+            PetsDataGrid.ItemsSource = _filteredPets;
+        }
+
+        private void SortComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (SortComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string sortOption = selectedItem.Tag.ToString();
+                ApplySorting(sortOption);
             }
         }
+
+        private void ApplySorting(string sortOption)
+        {
+            switch (sortOption)
+            {
+                case "TypeAsc":
+                    _filteredPets = _filteredPets.OrderBy(p => p.Pet_type.Type).ToList();
+                    break;
+                case "TypeDesc":
+                    _filteredPets = _filteredPets.OrderByDescending(p => p.Pet_type.Type).ToList();
+                    break;
+                case "NameAsc":
+                    _filteredPets = _filteredPets.OrderBy(p => p.Name).ToList();
+                    break;
+                case "NameDesc":
+                    _filteredPets = _filteredPets.OrderByDescending(p => p.Name).ToList();
+                    break;
+                case "DescriptionAsc":
+                    _filteredPets = _filteredPets.OrderBy(p => p.Description).ToList();
+                    break;
+                case "DescriptionDesc":
+                    _filteredPets = _filteredPets.OrderByDescending(p => p.Description).ToList();
+                    break;
+            }
+            PetsDataGrid.ItemsSource = _filteredPets;
+        }
+
+        private void SearchTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            string searchText = SearchTextBox.Text.ToLower();
+            _filteredPets = _pets.Where(pet => pet.Description.ToLower().Contains(searchText)).ToList();
+            PetsDataGrid.ItemsSource = _filteredPets;
+        }
+
         private void AddButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddPetPage());

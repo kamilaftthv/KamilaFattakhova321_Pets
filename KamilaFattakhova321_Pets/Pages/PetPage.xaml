@@ -14,7 +14,20 @@
             <Button Content="Профиль" Click="UserPageButton_Click" Width="400" Margin="5"/>
         </StackPanel>
         <StackPanel>
-            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="40"> 
+            <StackPanel Orientation="Horizontal" Margin="10, 50, 10, 10">
+                <TextBlock Text="Сортировка:"/>
+                <ComboBox x:Name="SortComboBox" SelectionChanged="SortComboBox_SelectionChanged" Width="200">
+                    <ComboBoxItem Content="Сортировка по типу (А-Я)" Tag="TypeAsc"/>
+                    <ComboBoxItem Content="Сортировка по типу (Я-А)" Tag="TypeDesc"/>
+                    <ComboBoxItem Content="Сортировка по названию (А-Я)" Tag="NameAsc"/>
+                    <ComboBoxItem Content="Сортировка по названию (Я-А)" Tag="NameDesc"/>
+                    <ComboBoxItem Content="Сортировка по описанию (А-Я)" Tag="DescriptionAsc"/>
+                    <ComboBoxItem Content="Сортировка по описанию (Я-А)" Tag="DescriptionDesc"/>
+                </ComboBox>
+                <TextBlock Text="       Поиск:"/>
+                <TextBox x:Name="SearchTextBox" Width="200" TextChanged="SearchTextBox_TextChanged"/>
+            </StackPanel>
+            <DataGrid x:Name="PetsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Pets}" Margin="10"> 
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Pet_type.Type}" Width="*"/>
